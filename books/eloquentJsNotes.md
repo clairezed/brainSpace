@@ -2,8 +2,9 @@
 
 **Concept d'abstraction** : cache les détails d'implémentation, limite bugs...
 
-*Example : forEach, standard method on arrays*
-```
+*Example : __forEach__, standard method on arrays*
+
+```javascript
 function gatherCorrelations( journal ) {
   var phis = {};
   journal.forEach( function( entry ) {
@@ -16,16 +17,18 @@ function gatherCorrelations( journal ) {
 }
 ```
 
-*Example : filter, standard method on arrays*
-```
+*Example : __filter__, standard method on arrays*
+
+```javascript
 console.log ( ancestryArray.filter( function( person ) {
   return person.father == " Carel Haverbeke ";
 }) ) ;
 // → [{ name : " Carolus Haverbeke ", ...}]
 ```
 
-*Example : map*
+*Example : __map__*
 
+```javascript
 function map ( array , transform ) {
   var mapped = [];
   for ( var i = 0; i < array.length ; i ++)
@@ -41,11 +44,11 @@ console.log ( map ( overNinety , function ( person ) {
   return person.name ;
 }) ) ;
 // → [" Clara Aernoudts " , " Emile Haverbeke ", " Maria Haverbeke "]
-
-
-*Example : reduce*
-
 ```
+
+*Example : __reduce__*
+
+```javascript
 function reduce ( array , combine , start ) {
   var current = start ;
   for ( var i = 0; i < array.length ; i ++)
@@ -61,7 +64,7 @@ console.log ( reduce ([1 , 2 , 3 , 4] , function (a , b) {
 
 If your array contains at least one element, you are allowed to leave off the start argument. The method will take the first element of the array as its start value and start reducing at the second element.
 
-```
+```javascript
 console.log ( ancestry.reduce ( function ( min , cur ) {
   if ( cur.born < min.born ) return cur ;
   else return min ;
@@ -69,9 +72,9 @@ console.log ( ancestry.reduce ( function ( min , cur ) {
 // → { name : " Pauwels van Haverbeke " , born : 1535 , ...}
 ```
 
-###Functions that create new functions :###
+### Functions that create new functions : ###
 
-```
+```javascript
 function greaterThan ( n ) {
   return function ( m ) { return m > n; };
 }
@@ -82,9 +85,9 @@ console.log ( greaterThan10 (11) ) ;
 ```
 
 
-###And you can have functions that change other functions.###
+###Functions that change other functions###
 
-```
+```javascript
 function noisy ( f ) {
   return function ( arg ) {
     console.log (" calling with ", arg ) ;
@@ -99,13 +102,13 @@ noisy ( Boolean ) (0) ;
 // → called with 0 - got false
 ```
 
-#### Apply ####
+####Apply####
 
 Method that can be used to call funtions with an array specifying their arguments.
 You pass it an array (or array-like object) of arguments, and it will call
 the function with those arguments.
 
-```
+```javascript
 function transparentWrapping ( f ) {
   return function () {
     return f.apply ( null , arguments );
@@ -118,7 +121,7 @@ arguments, to f.It does this by passing its own arguments object to apply .
 The first argument to apply , for which we are passing null here, can be
 used to simulate a method call.
 
-#### Bind ####
+####Bind####
 
 Method which is used to create a partially applied version of the function.
 The bind method, which all functions have, creates a new function that
@@ -126,7 +129,7 @@ will call the original function but with some of the arguments already
 fixed.
 
 
-```
+```javascript
 var theSet = [" Carel Haverbeke ", " Maria van Brussel ", " Donald Duck "];
 function isInSet ( set , person ) {
   return set.indexOf ( person.name ) > -1;
@@ -138,7 +141,7 @@ specific set, we can either write a function expression that makes a call
 to isInSet with our set as its first argument or partially apply the isInSet
 function. The call to bind returns a function that will call isInSet with theSet as first argument, followed by any remaining arguments given to the bound function.
 
-```
+```javascript
 console.log ( ancestry.filter ( function ( person ) {
   return isInSet ( theSet , person );
 }) ) ;

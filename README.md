@@ -25,6 +25,7 @@ __Monitoring packages__
 __Fast development utilities__
 
 - how to create scaffolding : https://github.com/Elao/meteor-admin-generator
+- [create a yeoman generator](http://www.mightymeteorites.com/articles/create-a-basic-yeoman-generator-for-meteor-in-20-minutes)
 
 __Developping mobile apps__
 
@@ -38,6 +39,7 @@ __Alerts and notifications__
 __Making and using its own packages__
 
 - [check telescope package system](http://www.telescopeapp.org/blog/previewing-telescope-big-refactor/)
+- [Writing a package, by Meteor Chef](http://themeteorchef.com/recipes/writing-a-package/)
 
 __File organisation__
 

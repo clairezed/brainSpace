@@ -48,6 +48,11 @@ __File organisation__
 __Animation__
 
 - [Meteor template animation](https://github.com/gwendall/meteor-template-animations) : Dead simple DOM animations for Meteor
+- 
+
+__Good practices__
+
+- [Keeping App State on the URL](https://meteorhacks.com/meteor-ui-pattern-keeping-app-state-in-the-url)
 
 
 # <a name="design">Design

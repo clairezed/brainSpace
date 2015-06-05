@@ -1,5 +1,9 @@
 * [5. Higher-Order functions](#chap5)
+  * forEach, filter, map, reduce
+  * apply, bind
 * [6. The Secret Life of Objects](#chap6)
+  * call, prototypes, constructors, defineProperty, hasOwnProperty
+  * Interface and Polymorphism, inheritance, instanceOf
 
 ___
 
@@ -174,9 +178,7 @@ speak.call({type: "old"}, "Oh my.");
 
 Objects have prototypes, which are other objects, and will act as if they have properties they don’t have as long as the prototype has that property. Simple objects have Object.prototype as their prototype.
 
-**```javascript
-Object.getPrototypeOf
-```**
+**`Object.getPrototypeOf`**
 
 The `Object.getPrototypeOf` function obviously returns the prototype of an object.
 
@@ -194,9 +196,8 @@ console.log(Object.getPrototypeOf([]) ==
 // → true
 ```
 
-**```javascript
-Object.create
-```**
+**`Object.create`**
+
 You can use `Object.create` to create an object with a specific prototype.
 
 ```javascript

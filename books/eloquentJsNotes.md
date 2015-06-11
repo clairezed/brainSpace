@@ -4,6 +4,8 @@
 * [6. The Secret Life of Objects](#chap6)
   * call, prototypes, constructors, defineProperty, hasOwnProperty
   * Interface and Polymorphism, inheritance, instanceOf
+* [8. Bugs and error handling](#chap8)
+* [9. Regular expressions](#chap9)
 
 ___
 
@@ -358,3 +360,103 @@ console.log(new TextCell("A") instanceof RTextCell);
 console.log([1] instanceof Array);
 // → true
 ```
+
+___
+
+##<a name="chap8">8. Bugs and error handling##
+
+###Strict mode###
+
+You can put `use strict` at the top of a file or a function body.
+- when you forget to put var in front of your variable, an error is reported ( this doesn’t work when the variable in question already exists as a global variable, but only when assigning to it would have created it.)
+- the this binding holds the value undefined in functions that are not called as methods.
+- disallows giving a function multiple parameters with the same name and removes certain problematic language features entirely
+
+###Exceptions###
+
+```javascript
+function promptDirection(question) {
+  var result = prompt(question, "");
+  if (result.toLowerCase() == "left") return "L";
+  if (result.toLowerCase() == "right") return "R";
+  throw new Error("Invalid direction: " + result);
+}
+
+function look() {
+  if (promptDirection("Which way?") == "L")
+    return "a house";
+  else
+    return "two angry bears";
+}
+
+try {
+  console.log("You see", look());
+} catch (error) {
+  console.log("Something went wrong: " + error);
+}
+```
+
+###Cleaning code when catching exceptions###
+
+```javascript
+function withContext(newContext, body) {
+  var oldContext = context;
+  context = newContext;
+  try {
+    return body();
+  } finally {
+    context = oldContext;
+  }
+}
+```
+
+###Custom exceptions###
+
+```javascript
+function InputError(message) {
+  this.message = message;
+  this.stack = (new Error()).stack;
+}
+InputError.prototype = Object.create(Error.prototype);
+InputError.prototype.name = "InputError";
+
+for (;;) {
+  try {
+    var dir = promptDirection("Where?");
+    console.log("You chose ", dir);
+    break;
+  } catch (e) {
+    if (e instanceof InputError)
+      console.log("Not a valid direction. Try again.");
+    else
+      throw e;
+  }
+}
+```
+
+The prototype is made to derive from Error.prototype so that instanceof Error will also return true for InputError objects. It’s also given a name property since the standard error types (Error, SyntaxError, ReferenceError, and so on) also have such a property.
+
+The assignment to the stack property tries to give this object a somewhat useful stack trace, on platforms that support it, by creating a regular error object and then using that object’s stack property as its own.
+
+###Assertions###
+
+```javascript
+function AssertionFailed(message) {
+  this.message = message;
+}
+AssertionFailed.prototype = Object.create(Error.prototype);
+
+function assert(test, message) {
+  if (!test)
+    throw new AssertionFailed(message);
+}
+
+function lastElement(array) {
+  assert(array.length > 0, "empty array in lastElement");
+  return array[array.length - 1];
+}
+```
+
+___
+
+##<a name="chap9">9. Regular Expressions##

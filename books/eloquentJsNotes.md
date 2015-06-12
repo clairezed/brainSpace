@@ -148,9 +148,7 @@ function isInSet ( set , person ) {
 }
 ```
 
-To call filter in order to collect those person objects whose names are in a specific set, we can either write a function expression that makes a call
-to isInSet with our set as its first argument or partially apply the isInSet
-function. The call to bind returns a function that will call isInSet with theSet as first argument, followed by any remaining arguments given to the bound function.
+To call filter in order to collect those person objects whose names are in a specific set, we can either write a function expression that makes a call to `isInSet` with our set as its first argument or partially apply the `isInSet` function. The call to `bind` returns a function that will call `isInSet` with `theSet` as first argument, followed by any remaining arguments given to the bound function.
 
 ```javascript
 console.log ( ancestry.filter ( function ( person ) {
@@ -368,8 +366,8 @@ ___
 ###Strict mode###
 
 You can put `use strict` at the top of a file or a function body.
-- when you forget to put var in front of your variable, an error is reported ( this doesn’t work when the variable in question already exists as a global variable, but only when assigning to it would have created it.)
-- the this binding holds the value undefined in functions that are not called as methods.
+- when you *forget to put var in front of your variable*, an error is reported ( this doesn’t work when the variable in question already exists as a global variable, but only when assigning to it would have created it.)
+- the *this binding holds the value undefined* in functions that are not called as methods.
 - disallows giving a function multiple parameters with the same name and removes certain problematic language features entirely
 
 ###Exceptions###
@@ -434,9 +432,9 @@ for (;;) {
 }
 ```
 
-The prototype is made to derive from Error.prototype so that instanceof Error will also return true for InputError objects. It’s also given a name property since the standard error types (Error, SyntaxError, ReferenceError, and so on) also have such a property.
+The prototype is made to derive from `Error.prototype` so that instanceof `Error` will also return true for `InputError` objects. It’s also given a name property since the standard error types (`Error`, `SyntaxError`, `ReferenceError`, and so on) also have such a property.
 
-The assignment to the stack property tries to give this object a somewhat useful stack trace, on platforms that support it, by creating a regular error object and then using that object’s stack property as its own.
+The *assignment to the stack property* tries to give this object a somewhat useful stack trace, on platforms that support it, by creating a regular error object and then using that object’s stack property as its own.
 
 ###Assertions###
 

@@ -130,6 +130,62 @@ PlantEater.prototype.act = function(context) {
     return {type: "move", direction: space};
 };
 
+function SmartPlantEater() {
+  this.energy = 20;
+  this.turnNoFeed = 0;
+}
+
+SmartPlantEater.prototype.act = function(context) {
+  var space = context.find(" ");
+  this.turnNoFeed +=1;
+  var crit = self;
+  if (this.energy > 60 && space)
+    return {type: "reproduce", direction: space};
+  var plant = context.find("*");
+  if (plant && this.turnNoFeed >=2) {
+      console.log(this);
+      this.turnNoFeed = 0;
+      return {type: "eat", direction: plant};
+    }
+  if (space)
+    return {type: "move", direction: space};
+};
+
+// Your code here
+function Tiger() {
+  this.energy = 40;
+  // this.turnNoFeed = 0;
+  this.direction = randomElement(directionNames);
+}
+
+Tiger.prototype.act = function(context) {
+  console.log(context);
+  console.log(context.look(this.direction));
+  // this.turnNoFeed +=1;
+
+  if (context.look(this.direction) != " ")
+    this.direction = space || "s";
+  console.log(this.direction);
+
+  var space = context.find(" ");
+  if (this.energy > 60 && space)
+    return {type: "reproduce", direction: space};
+
+  var crit = context.find("@");
+  if (crit) {
+      console.log(this);
+      this.turnNoFeed = 0;
+      return {type: "eat", direction: crit};
+    }
+  return {type: "move", direction: this.direction};
+};
+
+BouncingCritter.prototype.act = function(view) {
+  if (view.look(this.direction) != " ")
+    this.direction = view.find(" ") || "s";
+  return {type: "move", direction: this.direction};
+};
+
 // WALL ==========================================================
 
 function Wall() {}

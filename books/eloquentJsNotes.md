@@ -6,6 +6,7 @@
   * Interface and Polymorphism, inheritance, instanceOf
 * [8. Bugs and error handling](#chap8)
 * [9. Regular expressions](#chap9)
+* [10. Modules](#chap10)
 
 ___
 
@@ -16,12 +17,12 @@ ___
 *Example : __forEach__, standard method on arrays*
 
 ```javascript
-function gatherCorrelations( journal ) {
+function gatherCorrelations(journal ) {
   var phis = {};
-  journal.forEach( function( entry ) {
-    entry.events.forEach ( function( event ) {
-      if (!( event in phis ) )
-        phis[event] = phi( tableFor( event , journal ));
+  journal.forEach(function(entry ) {
+    entry.events.forEach(function(event ) {
+      if(!(event in phis ) )
+        phis[event] = phi(tableFor(event , journal ));
       }) ;
     }) ;
   return phis ;
@@ -31,7 +32,7 @@ function gatherCorrelations( journal ) {
 *Example : __filter__, standard method on arrays*
 
 ```javascript
-console.log ( ancestryArray.filter( function( person ) {
+console.log(ancestryArray.filter(function(person ) {
   return person.father == " Carel Haverbeke ";
 }) ) ;
 // → [{ name : " Carolus Haverbeke ", ...}]
@@ -40,18 +41,18 @@ console.log ( ancestryArray.filter( function( person ) {
 *Example : __map__*
 
 ```javascript
-function map ( array , transform ) {
+function map(array , transform ) {
   var mapped = [];
-  for ( var i = 0; i < array.length ; i ++)
-    mapped.push ( transform ( array [ i ]) );
+  for(var i = 0; i < array.length ; i ++)
+    mapped.push(transform(array [ i ]) );
   return mapped ;
 }
 
-var overNinety = ancestry.filter ( function ( person ) {
+var overNinety = ancestry.filter(function(person ) {
   return person.died - person.born > 90;
 }) ;
 
-console.log ( map ( overNinety , function ( person ) {
+console.log(map(overNinety , function(person ) {
   return person.name ;
 }) ) ;
 // → [" Clara Aernoudts " , " Emile Haverbeke ", " Maria Haverbeke "]
@@ -60,14 +61,14 @@ console.log ( map ( overNinety , function ( person ) {
 *Example : __reduce__*
 
 ```javascript
-function reduce ( array , combine , start ) {
+function reduce(array , combine , start ) {
   var current = start ;
-  for ( var i = 0; i < array.length ; i ++)
-    current = combine ( current , array [i ]) ;
+  for(var i = 0; i < array.length ; i ++)
+    current = combine(current , array [i ]) ;
   return current ;
 }
 
-console.log ( reduce ([1 , 2 , 3 , 4] , function (a , b) {
+console.log(reduce([1 , 2 , 3 , 4] , function(a , b) {
   return a + b;
 }, 0) ) ;
 // → 10
@@ -76,22 +77,22 @@ console.log ( reduce ([1 , 2 , 3 , 4] , function (a , b) {
 If your array contains at least one element, you are allowed to leave off the start argument. The method will take the first element of the array as its start value and start reducing at the second element.
 
 ```javascript
-console.log ( ancestry.reduce ( function ( min , cur ) {
-  if ( cur.born < min.born ) return cur ;
+console.log(ancestry.reduce(function(min , cur ) {
+  if(cur.born < min.born ) return cur ;
   else return min ;
 }) ) ;
 // → { name : " Pauwels van Haverbeke " , born : 1535 , ...}
 ```
 
-### Functions that create new functions : ###
+###Functions that create new functions :###
 
 ```javascript
-function greaterThan ( n ) {
-  return function ( m ) { return m > n; };
+function greaterThan(n ) {
+  return function(m ) { return m > n; };
 }
 
-var greaterThan10 = greaterThan (10) ;
-console.log ( greaterThan10 (11) ) ;
+var greaterThan10 = greaterThan(10) ;
+console.log(greaterThan10(11) ) ;
 // → true
 ```
 
@@ -99,16 +100,16 @@ console.log ( greaterThan10 (11) ) ;
 ###Functions that change other functions###
 
 ```javascript
-function noisy ( f ) {
-  return function ( arg ) {
-    console.log (" calling with ", arg ) ;
-    var val = f ( arg ) ;
-    console.log (" called with " , arg , "- got ", val );
+function noisy(f ) {
+  return function(arg ) {
+    console.log(" calling with ", arg ) ;
+    var val = f(arg ) ;
+    console.log(" called with " , arg , "- got ", val );
     return val ;
   };
 }
 
-noisy ( Boolean ) (0) ;
+noisy(Boolean )(0) ;
 // → calling with 0
 // → called with 0 - got false
 ```
@@ -116,14 +117,14 @@ noisy ( Boolean ) (0) ;
 ####Apply####
 
 Method that can be used to call funtions with an array specifying their arguments.
-You pass it an array (or array-like object) of arguments, and it will call
+You pass it an array(or array-like object) of arguments, and it will call
 the function with those arguments.
 
 ```javascript
-function transparentWrapping ( f ) {
-  return function () {
+function transparentWrapping(f ) {
+  return function() {
     //  Null as a first argument is used to give a value to this.
-    return f.apply ( null , arguments );
+    return f.apply(null , arguments );
   };
 }
 ```
@@ -143,8 +144,8 @@ fixed.
 
 ```javascript
 var theSet = [" Carel Haverbeke ", " Maria van Brussel ", " Donald Duck "];
-function isInSet ( set , person ) {
-  return set.indexOf ( person.name ) > -1;
+function isInSet(set , person ) {
+  return set.indexOf(person.name ) > -1;
 }
 ```
 
@@ -153,12 +154,12 @@ to isInSet with our set as its first argument or partially apply the isInSet
 function. The call to bind returns a function that will call isInSet with theSet as first argument, followed by any remaining arguments given to the bound function.
 
 ```javascript
-console.log ( ancestry.filter ( function ( person ) {
-  return isInSet ( theSet , person );
+console.log(ancestry.filter(function(person ) {
+  return isInSet(theSet , person );
 }) ) ;
 // → [{ name : " Maria van Brussel ", ...}, { name : " Carel Haverbeke " , ...}]
 
-console.log ( ancestry.filter ( isInSet.bind ( null , theSet )));
+console.log(ancestry.filter(isInSet.bind(null , theSet )));
 //  Null as a first argument is used to give a value to this.
 // → ... same result
 ```
@@ -236,7 +237,7 @@ console.log(Rabbit.prototype);
 // → Rabbit{}
 ```
 
-Constructors (in fact, all functions) automatically get a property named prototype, which by default holds a plain, empty object that derives from Object.prototype.
+Constructors(in fact, all functions) automatically get a property named prototype, which by default holds a plain, empty object that derives from Object.prototype.
 
 So to add a speak method to rabbits created with the Rabbit constructor, we can simply do this:
 
@@ -262,11 +263,11 @@ Object.defineProperty(Object.prototype, "hiddenNonsense",
 
 The `hasOwnProperty` method tells us whether the object itself has the property, without looking at its prototypes.
 
-When you are worried that someone (some other code you loaded into your program) might have messed with the base object prototype, I recommend you write your for/in loops like this:
+When you are worried that someone(some other code you loaded into your program) might have messed with the base object prototype, I recommend you write your for/in loops like this:
 
 ```javascript
-for (var name in map) {
-  if (map.hasOwnProperty(name)) {
+for(var name in map) {
+  if(map.hasOwnProperty(name)) {
     // ... this is an own property
   }
 }
@@ -312,7 +313,7 @@ pile.height = 100;
 // → Ignoring attempt to set height to 100
 ```
 
-You can also add such a property to an existing object, for example a prototype, using the `Object.defineProperty` function (which we previously used to create nonenumerable properties).
+You can also add such a property to an existing object, for example a prototype, using the `Object.defineProperty` function(which we previously used to create nonenumerable properties).
 
 ```javascript
 Object.defineProperty(TextCell.prototype, "heightProp", {
@@ -336,7 +337,7 @@ function RTextCell(text) {
 RTextCell.prototype = Object.create(TextCell.prototype);
 RTextCell.prototype.draw = function(width, height) {
   var result = [];
-  for (var i = 0; i < height; i++) {
+  for(var i = 0; i < height; i++) {
     var line = this.text[i] || "";
     result.push(repeat(" ", width - line.length) + line);
   }
@@ -368,7 +369,7 @@ ___
 ###Strict mode###
 
 You can put `use strict` at the top of a file or a function body.
-- when you forget to put var in front of your variable, an error is reported ( this doesn’t work when the variable in question already exists as a global variable, but only when assigning to it would have created it.)
+- when you forget to put var in front of your variable, an error is reported(this doesn’t work when the variable in question already exists as a global variable, but only when assigning to it would have created it.)
 - the this binding holds the value undefined in functions that are not called as methods.
 - disallows giving a function multiple parameters with the same name and removes certain problematic language features entirely
 
@@ -377,13 +378,13 @@ You can put `use strict` at the top of a file or a function body.
 ```javascript
 function promptDirection(question) {
   var result = prompt(question, "");
-  if (result.toLowerCase() == "left") return "L";
-  if (result.toLowerCase() == "right") return "R";
+  if(result.toLowerCase() == "left") return "L";
+  if(result.toLowerCase() == "right") return "R";
   throw new Error("Invalid direction: " + result);
 }
 
 function look() {
-  if (promptDirection("Which way?") == "L")
+  if(promptDirection("Which way?") == "L")
     return "a house";
   else
     return "two angry bears";
@@ -391,7 +392,7 @@ function look() {
 
 try {
   console.log("You see", look());
-} catch (error) {
+} catch(error) {
   console.log("Something went wrong: " + error);
 }
 ```
@@ -415,18 +416,18 @@ function withContext(newContext, body) {
 ```javascript
 function InputError(message) {
   this.message = message;
-  this.stack = (new Error()).stack;
+  this.stack =(new Error()).stack;
 }
 InputError.prototype = Object.create(Error.prototype);
 InputError.prototype.name = "InputError";
 
-for (;;) {
+for(;;) {
   try {
     var dir = promptDirection("Where?");
     console.log("You chose ", dir);
     break;
-  } catch (e) {
-    if (e instanceof InputError)
+  } catch(e) {
+    if(e instanceof InputError)
       console.log("Not a valid direction. Try again.");
     else
       throw e;
@@ -434,7 +435,7 @@ for (;;) {
 }
 ```
 
-The prototype is made to derive from Error.prototype so that instanceof Error will also return true for InputError objects. It’s also given a name property since the standard error types (Error, SyntaxError, ReferenceError, and so on) also have such a property.
+The prototype is made to derive from Error.prototype so that instanceof Error will also return true for InputError objects. It’s also given a name property since the standard error types(Error, SyntaxError, ReferenceError, and so on) also have such a property.
 
 The assignment to the stack property tries to give this object a somewhat useful stack trace, on platforms that support it, by creating a regular error object and then using that object’s stack property as its own.
 
@@ -447,7 +448,7 @@ function AssertionFailed(message) {
 AssertionFailed.prototype = Object.create(Error.prototype);
 
 function assert(test, message) {
-  if (!test)
+  if(!test)
     throw new AssertionFailed(message);
 }
 
@@ -460,3 +461,270 @@ function lastElement(array) {
 ___
 
 ##<a name="chap9">9. Regular Expressions##
+
+###Généralités###
+
+```javascript
+var re1 = new RegExp("abc");
+var re2 = /abc/;
+```
+
+Some characters, such as question marks and plus signs, have special meanings in regular expressions and must be preceded by a backslash if they are meant to represent the character itself. When in doubt, just put a backslash before any character that is not a letter, number, or whitespace.
+
+```javascript
+var eighteenPlus = /eighteen\+/;
+```
+
+Within square brackets, a dash(`-`) between two characters can be used to indicate a range of characters, where the ordering is determined by the character’s Unicode number.
+
+
+`\d`  Any digit character
+`\w`  An alphanumeric character(“word character”)
+`\s`  Any whitespace character(space, tab, newline, and similar)
+`\D`  A character that is not a digit
+`\W`  A nonalphanumeric character
+`\S`  A nonwhitespace character
+`.`   Any character except for newline
+
+`[\d.]` means *any* digit or a period character.
+
+To *invert* a set of characters—that is, to express that you want to match any character except the ones in the set—you can write a caret(`^`) character after the opening bracket.
+
+###Matching###
+
+```javascript
+console.log(/abc/.test("zabcde"));
+// → true
+console.log(/abc/.test("abxde"));
+// → false
+```
+
+Matching any number :
+
+```javascript
+console.log(/[0123456789]/.test("in 1992"));
+// → true
+console.log(/[0-9]/.test("in 1992"));
+// → true
+```
+
+Match a date and time format like 30-01-2003 15:20 with the following expression:
+
+```javascript
+var dateTime = /\d\d-\d\d-\d\d\d\d \d\d:\d\d/;
+console.log(dateTime.test("30-01-2003 15:20"));
+// → true
+console.log(dateTime.test("30-jan-2003 15:20"));
+// → false
+```
+
+```javascript
+var notBinary = /[^01]/;
+console.log(notBinary.test("1100100010100110"));
+// → false
+console.log(notBinary.test("1100100010200110"));
+// → true
+```
+
+###Repeating parts of a pattern###
+
+- `+` : the element *may be repeated more than once*.
+- `*` : similar meaning but also *allows the pattern to match zero times*.
+-  `?` : *makes a part of a pattern “optional”*(it may occur zero or one time).
+- `{4}` : requires an element to occur *exactly four times*
+- `{,5}` : means *zero to five times*.
+- `{5,}` : means *five or more times*.
+
+```javascript
+console.log(/'\d+'/.test("'123'"));
+// → true
+console.log(/'\d+'/.test("''"));
+// → false
+console.log(/'\d*'/.test("'123'"));
+// → true
+console.log(/'\d*'/.test("''"));
+// → true
+
+var neighbor = /neighbou?r/;
+console.log(neighbor.test("neighbour"));
+// → true
+console.log(neighbor.test("neighbor"));
+// → true
+
+var dateTime = /\d{1,2}-\d{1,2}-\d{4} \d{1,2}:\d{2}/;
+console.log(dateTime.test("30-1-2003 8:45"));
+// → true
+```
+
+###Grouping subexpressions###
+
+- `()` : A part of a regular expression that is enclosed in parentheses *counts as a single element* as far as the operators following it are concerned
+- `i` : makes a regular expression *case insensitive*
+
+
+```javascript
+var cartoonCrying = /boo+(hoo+)+/i;
+console.log(cartoonCrying.test("Boohoooohoohooo"));
+// → true
+// The first and second + characters apply only to the second o in boo and hoo, respectively. The third + applies to the whole group(hoo+), matching one or more sequences like that.
+```
+
+###Matches and group###
+
+- `exec` : will return null if no match was found and return an object with information about the match otherwise.
+- `match` : quite the same as `exec`, for strings
+
+```javascript
+var match = /\d+/.exec("one two 100");
+console.log(match);
+// → ["100"]
+console.log(match.index);
+// → 8
+
+console.log("one two 100".match(/\d+/));
+// → ["100"]
+```
+
+##<a name="chap10">10. Modules##
+
+###Using functions as namespaces###
+
+*Functions are the only things in JavaScript that create a new scope*. So if we want our modules to have their own scope, we will have to base them on functions.
+
+From :
+
+```javascript
+var names = ["Sunday", "Monday", "Tuesday", "Wednesday",
+             "Thursday", "Friday", "Saturday"];
+function dayName(number) {
+  return names[number];
+}
+
+console.log(dayName(1));
+// → Monday
+```
+
+To :
+
+```javascript
+var dayName = function() {
+  var names = ["Sunday", "Monday", "Tuesday", "Wednesday",
+               "Thursday", "Friday", "Saturday"];
+  return function(number) {
+    return names[number];
+  };
+}();
+```
+
+###Objects as interfaces###
+
+If we want to add another function, we can’t simply return the function anymore but must wrap the two functions in an object.
+
+```javascript
+var weekDay = function() {
+  var names = [" Sunday " , " Monday " , " Tuesday ", " Wednesday ", " Thursday " , " Friday " , " Saturday "];
+  return {
+    name : function(number ) { return names [ number ]; },
+    number : function(name ) { return names.indexOf(name ); }
+  };
+}() ;
+console.log(weekDay.name(weekDay.number(" Sunday ") ));
+// → Sunday
+```
+
+For bigger modules, a convenient alternative is to declare an object (conventionally named {exports{}) and add properties to that whenever we are defining something that needs to be exported.
+
+```javascript
+(function(exports) {
+  var names = ["Sunday", "Monday", "Tuesday", "Wednesday",
+               "Thursday", "Friday", "Saturday"];
+
+  exports.name = function(number) {
+    return names[number];
+  };
+  exports.number = function(name) {
+    return names.indexOf(name);
+  };
+})(this.weekDay = {});
+
+console.log(weekDay.name(weekDay.number("Saturday")));
+// → Saturday
+```
+
+###Home made require###
+
+**Evaluating data as code**
+
+A good way of interpreting data as code is to use the `Function` constructor. This takes **two arguments**: a string containing a **comma-separated list of argument names** and a string containing the **function’s body**.
+
+```javascript
+var plusOne = new Function("n", "return n + 1;");
+console.log(plusOne(4));
+// → 5
+```
+
+**Minimal immplementation**
+
+```javascript
+function require(name) {
+  var code = new Function("exports", readFile(name));
+  var exports = {};
+  code(exports);
+  return exports;
+}
+
+console.log(require("weekDay").name(1));
+// → Monday
+```
+
+Problems:
+-  it will **load and run a module every time it is required** ->  storing the modules that have already been loaded in an object and simply returning the existing value when one is loaded multiple times.
+-   it is not possible for a module to directly **export a value other than the exports object**, such as a function -> provide modules with another variable, module, which is an object that has a property exports
+
+**CommonJS modules**
+
+```javascript
+function require(name) {
+  var code = new Function("exports", readFile(name));
+  var exports = {};
+  code(exports);
+  return exports;
+}
+
+console.log(require("weekDay").name(1));
+// → Monday
+```
+
+**Asynchronous Module Definition (AMD)**
+
+**Browserify** (alternate solution) : program to run on your code before you serve it on a web page. Will look for calls to `require`, resolve all dependencies, and gather the needed code into a single big file. The website itself can simply load this file to get all the modules it needs.
+
+**AMD** : wrap the code that makes up your module in a function so that the module loader can first load its dependencies in the background and then call the function, initializing the module, when the dependencies have been loaded.
+
+
+`define` : takes first an **array of module names** and then a **function that takes one argument for each dependency**. It will load the dependencies (if they haven’t already been loaded) in the background, allowing the page to continue working while the files are being fetched. Once all dependencies are loaded, define will call the function it was given, with the interfaces of those dependencies as arguments.
+
+*example of module loaded via define :*
+The modules must contain a **call to define**. The **value used as their interface** is whatever was returned by the function passed to define.
+
+```javascript
+define([], function() {
+  var names = ["Sunday", "Monday", "Tuesday", "Wednesday",
+               "Thursday", "Friday", "Saturday"];
+  return {
+    name: function(number) { return names[number]; },
+    number: function(name) { return names.indexOf(name); }
+  };
+});
+```
+
+*objects that describe the state of modules :*
+
+```javascript
+var defineCache = Object.create(null);
+var currentMod = null;
+```
+
+*getModule function :*
+
+ When given a name, will return such an object  that describe the state of modules, telling us whether they are available yet and providing their interface when they are, and ensure that the module is scheduled to be loaded. It uses a cache object to avoid loading the same module twice.

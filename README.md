@@ -31,7 +31,11 @@ ___
 
 Things to try and implement in a next meteor project
 
-__Monitoring packages__
+__File organisation__
+
+- https://medium.com/unexpected-token/how-to-organize-your-files-on-your-meteor-projects-ef7f34373ed
+
+__Monitoring your application__
 
 - [Mongol](https://github.com/msavin/Mongol) : Visual Editing Tool for MongoDB Collections
 - [JetSetter](https://github.com/msavin/JetSetter) : Visual Get/Set Tool for Meteor Session Variables
@@ -41,39 +45,59 @@ __Fast development utilities__
 - how to create scaffolding : https://github.com/Elao/meteor-admin-generator
 - [create a yeoman generator](http://www.mightymeteorites.com/articles/create-a-basic-yeoman-generator-for-meteor-in-20-minutes)
 
+__Routing__
+- Watch flow router ?
+
+__Reactivity__
+- [Reining in the reactivity with Meteor](http://tomkelsey.co.uk/reining-in-the-reactivity-with-meteor/) : limiting reactivity for ux purpose
+
+__Making and using its own packages__
+
+- [check telescope package system](http://www.telescopeapp.org/blog/previewing-telescope-big-refactor/)
+- [Writing a package, by Meteor Chef](http://themeteorchef.com/recipes/writing-a-package/)
+- [How I develop MeteorJS apps - part 1. Package for everything](http://howwedoapps.com/2015/07/16/how-i-develop-meteorjs-apps-part1)
+
 __Developping mobile apps__
 
 - [The illustrated guide to mobile apps with Meteor](https://www.yauh.de/the-illustrated-guide-to-mobile-apps-with-meteor/) : huge doc but quite small app, no routing, no design framework, but explains store submission
 - [Meteor Point mobile developing page](http://meteorpoint.com/do-you-know-about/mobile-developing) : list of links about meteor mobile app development
 - [Meteor-React-Ionic Mobile App Part 1: The Basic Template](https://medium.com/@SamCorcos/meteor-react-ionic-mobile-app-part-1-the-basic-template-9355ebf3397f)
 
-__Alerts and notifications__
+__Communicating with outside world : API, etc__
 
-- https://github.com/juliancwirko/meteor-s-alert/
+- [Authenticating a Meteor.js app using a Chrome Extension](https://medium.com/meteor-js/authenticating-a-meteor-js-app-using-a-chrome-extension-321a5e3a18e) : building a RESTful API and authenticating server side through a chrome extension
+- [How to connect Meteor.js to an external API](https://medium.com/meteor-js/how-to-connect-meteor-js-to-an-external-api-93c0d856433b)
+- [How to make Meteor web apps communicate together](https://medium.com/unexpected-token/how-to-make-meteor-web-apps-communicate-together-a-comparison-with-the-rest-api-method-acef91040faf)
+- [Writing an API](http://themeteorchef.com/recipes/writing-an-api/)
 
-__Making and using its own packages__
+__Debugging__
+- [EASILY DEBUGGING METEOR.JS](http://joshowens.me/easily-debugging-meteor-js/)
 
-- [check telescope package system](http://www.telescopeapp.org/blog/previewing-telescope-big-refactor/)
-- [Writing a package, by Meteor Chef](http://themeteorchef.com/recipes/writing-a-package/)
+__Testing__
 
-__File organisation__
+__Scaling__
+- [Building Large Apps: Tips](https://meteor.hackpad.com/Building-Large-Apps-Tips-d8PQ848nLyE)
 
-- https://medium.com/unexpected-token/how-to-organize-your-files-on-your-meteor-projects-ef7f34373ed
+__Deployment__
 
+- [When a Meteor finally hits production](https://medium.com/@davidyahalomi/when-a-meteor-finally-hits-production-6c37b81f795b) : deployment configuration
+- [Continuous delivery with MeteorJS](https://sungwoncho.io/meteorjs-continuous-delivery/)
+- [Continuous Integration and Delivery of your Meteor “package for everything” project](http://howwedoapps.com/2015/07/27/how-i-develop-meteorjs-apps-part-3-continuous-integration-and-delivery-of-your-meteor-package-for-everything-project) : with codeship and meteorup
+
+__Security__
+- [Allow & Deny: A Security Primer](https://www.discovermeteor.com/blog/allow-deny-a-security-primer/)
+
+__Good practices__
+- [Keeping App State on the URL](https://meteorhacks.com/meteor-ui-pattern-keeping-app-state-in-the-url)
+- [Fat models, skinny templates](http://joshowens.me/fat-models-skinny-templates/)
 
 __Animation__
 
 - [Meteor template animation](https://github.com/gwendall/meteor-template-animations) : simple DOM animations for Meteor
+- 
+__Alerts and notifications__
 
-__Good practices__
-
-- [Keeping App State on the URL](https://meteorhacks.com/meteor-ui-pattern-keeping-app-state-in-the-url)
-
-__Deployment configuration__
-
-- [When a Meteor finally hits production](https://medium.com/@davidyahalomi/when-a-meteor-finally-hits-production-6c37b81f795b)
-
-
+- https://github.com/juliancwirko/meteor-s-alert/
 
 # <a name="design">Design
 

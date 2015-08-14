@@ -6,6 +6,7 @@
 * [Design](#design)
  * [Font](#font)
  * [Patterns](#patterns)
+ * [Divers](#designdiverse)
 * [Books](#design)
  * [Javascript](#javascript)
   * [Notes Eloquent.js](books/eloquentJsNotes.md)
@@ -108,6 +109,12 @@ __Alerts and notifications__
 ## <a name="patterns">Patterns
 
 - http://thepatternlibrary.com/ few patterns to use in websites
+
+## <a name="designdiverse">Divers, à classer
+
+- http://miguel-perez.github.io/smoothState.js/index.html : Add page transitions to your site an boost performance
+- http://www.contentsnippets.com/ : Content Snippets collects specific copy examples from websites and applications, to serve as inspiration for writing professionals
+
 
 # <a name="books">Books
 

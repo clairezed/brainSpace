@@ -63,7 +63,8 @@ __Developping mobile apps__
 - [The illustrated guide to mobile apps with Meteor](https://www.yauh.de/the-illustrated-guide-to-mobile-apps-with-meteor/) : huge doc but quite small app, no routing, no design framework, but explains store submission
 - [Meteor Point mobile developing page](http://meteorpoint.com/do-you-know-about/mobile-developing) : list of links about meteor mobile app development
 - [Meteor-React-Ionic Mobile App Part 1: The Basic Template](https://medium.com/@SamCorcos/meteor-react-ionic-mobile-app-part-1-the-basic-template-9355ebf3397f)
-- [1st app in meteor](https://medium.com/@jracollins/my-first-app-carspot-an-instagram-clone-for-cars-was-approved-for-the-itunes-store-on-the-18-8-f4668f8b17de) : codeship, modulus, settings.json, compose.io, cordova, WkWebView, Appcache package, imgix,
+- [1st app in meteor](https://medium.com/@jracollins/my-first-app-carspot-an-instagram-clone-for-cars-was-approved-for-the-itunes-store-on-the-18-8-f4668f8b17de) : codeship, modulus, settings.json, compose.io, cordova, WkWebView, Appcache package, imgix...
+- [Building an ultra responsive UI sharing nearly all code between web and mobile](https://hansoftx.com/blog/building-an-ultra-responsive-ui) : example of a desktop and mobile app built with meteor
 
 __Communicating with outside world : API, etc__
 

@@ -63,6 +63,7 @@ __Developping mobile apps__
 - [The illustrated guide to mobile apps with Meteor](https://www.yauh.de/the-illustrated-guide-to-mobile-apps-with-meteor/) : huge doc but quite small app, no routing, no design framework, but explains store submission
 - [Meteor Point mobile developing page](http://meteorpoint.com/do-you-know-about/mobile-developing) : list of links about meteor mobile app development
 - [Meteor-React-Ionic Mobile App Part 1: The Basic Template](https://medium.com/@SamCorcos/meteor-react-ionic-mobile-app-part-1-the-basic-template-9355ebf3397f)
+- [1st app in meteor](https://medium.com/@jracollins/my-first-app-carspot-an-instagram-clone-for-cars-was-approved-for-the-itunes-store-on-the-18-8-f4668f8b17de) : codeship, modulus, settings.json, compose.io, cordova, WkWebView, Appcache package, imgix,
 
 __Communicating with outside world : API, etc__
 
@@ -70,6 +71,7 @@ __Communicating with outside world : API, etc__
 - [How to connect Meteor.js to an external API](https://medium.com/meteor-js/how-to-connect-meteor-js-to-an-external-api-93c0d856433b)
 - [How to make Meteor web apps communicate together](https://medium.com/unexpected-token/how-to-make-meteor-web-apps-communicate-together-a-comparison-with-the-rest-api-method-acef91040faf)
 - [Writing an API](http://themeteorchef.com/recipes/writing-an-api/)
+- [Server Side Route Authentication in Meteor](https://blog.kayla.com.au/server-side-route-authentication-in-meteor/)
 
 __Debugging__
 - [EASILY DEBUGGING METEOR.JS](http://joshowens.me/easily-debugging-meteor-js/)
@@ -84,6 +86,7 @@ __Deployment__
 - [When a Meteor finally hits production](https://medium.com/@davidyahalomi/when-a-meteor-finally-hits-production-6c37b81f795b) : deployment configuration
 - [Continuous delivery with MeteorJS](https://sungwoncho.io/meteorjs-continuous-delivery/)
 - [Continuous Integration and Delivery of your Meteor “package for everything” project](http://howwedoapps.com/2015/07/27/how-i-develop-meteorjs-apps-part-3-continuous-integration-and-delivery-of-your-meteor-package-for-everything-project) : with codeship and meteorup
+- [Taking meteor apps into production with modulus compose and codeship](https://medium.com/@david_sykora/taking-meteor-apps-into-production-with-modulus-compose-and-codeship-54236d7f0cc) : with modulus, compose, codeship
 
 __Security__
 - [Allow & Deny: A Security Primer](https://www.discovermeteor.com/blog/allow-deny-a-security-primer/)
@@ -95,10 +98,11 @@ __Good practices__
 __Animation__
 
 - [Meteor template animation](https://github.com/gwendall/meteor-template-animations) : simple DOM animations for Meteor
-- 
+-
 __Alerts and notifications__
 
 - https://github.com/juliancwirko/meteor-s-alert/
+
 
 # <a name="design">Design
 

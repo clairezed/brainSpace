@@ -161,13 +161,13 @@ function Tiger() {
 Tiger.prototype.act = function(context) {
   console.log(context);
   console.log(context.look(this.direction));
+  var space = context.find(" ");
   // this.turnNoFeed +=1;
 
   if (context.look(this.direction) != " ")
     this.direction = space || "s";
   console.log(this.direction);
 
-  var space = context.find(" ");
   if (this.energy > 60 && space)
     return {type: "reproduce", direction: space};
 

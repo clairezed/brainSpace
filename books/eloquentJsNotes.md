@@ -726,3 +726,20 @@ var currentMod = null;
 *getModule function :*
 
  When given a name, will return such an object  that describe the state of modules, telling us whether they are available yet and providing their interface when they are, and ensure that the module is scheduled to be loaded. It uses a cache object to avoid loading the same module twice.
+
+
+###Interface design###
+
+**Predictability**
+
+- try to **follow convention** (make your interface resemble a similar existing interface)
+
+**Composability**
+
+- In your interfaces, try to **use the simplest data structures** possible and make functions do a single, clear thing.
+
+
+**Layered interface**
+
+-  don't overload the user of your interface with details / don't hide all the details in case people need to do complicated things with your module
+-  provide **two interfaces**: a **detailed low-level** one for complex situations and a **simple high-level** one for routine use.

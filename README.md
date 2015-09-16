@@ -3,6 +3,7 @@
   * [Javascript debugging tips](#javascriptDebuggingTips)
  * [Meteor](#meteor)
   * [Meteor tips](#meteorTips)
+  * [Meteor generic resources](#meteorResources)
 * [Design](#design)
  * [Font](#font)
  * [Patterns](#patterns)
@@ -99,10 +100,16 @@ __Good practices__
 __Animation__
 
 - [Meteor template animation](https://github.com/gwendall/meteor-template-animations) : simple DOM animations for Meteor
--
+
+
 __Alerts and notifications__
 
 - https://github.com/juliancwirko/meteor-s-alert/
+
+### <a name="meteorResources">Meteor generic resources
+
+- https://github.com/Urigo/awesome-meteor : A curated, community driven list of awesome Meteor packages, libraries, resources and shiny things
+
 
 
 # <a name="design">Design

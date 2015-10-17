@@ -4,6 +4,7 @@
   * [Javascript debugging tips](#javascriptDebuggingTips)
  * [Meteor](#meteor)
   * [Meteor tips](#meteorTips)
+  * [Meteor generic resources](#meteorResources)
 * [Design](#design)
  * [Font](#font)
  * [Patterns](#patterns)
@@ -62,13 +63,16 @@ __Making and using its own packages__
 - [check telescope package system](http://www.telescopeapp.org/blog/previewing-telescope-big-refactor/)
 - [Writing a package, by Meteor Chef](http://themeteorchef.com/recipes/writing-a-package/)
 - [How I develop MeteorJS apps - part 1. Package for everything](http://howwedoapps.com/2015/07/16/how-i-develop-meteorjs-apps-part1)
+- [https://github.com/Compy/meteor-mobile-desktop](https://github.com/Compy/meteor-mobile-desktop) : example use of packages to develop an app running on both desktop and mobile
 
 __Developping mobile apps__
 
 - [The illustrated guide to mobile apps with Meteor](https://www.yauh.de/the-illustrated-guide-to-mobile-apps-with-meteor/) : huge doc but quite small app, no routing, no design framework, but explains store submission
 - [Meteor Point mobile developing page](http://meteorpoint.com/do-you-know-about/mobile-developing) : list of links about meteor mobile app development
 - [Meteor-React-Ionic Mobile App Part 1: The Basic Template](https://medium.com/@SamCorcos/meteor-react-ionic-mobile-app-part-1-the-basic-template-9355ebf3397f)
-- [1st app in meteor](https://medium.com/@jracollins/my-first-app-carspot-an-instagram-clone-for-cars-was-approved-for-the-itunes-store-on-the-18-8-f4668f8b17de) : codeship, modulus, settings.json, compose.io, cordova, WkWebView, Appcache package, imgix,
+- [1st app in meteor](https://medium.com/@jracollins/my-first-app-carspot-an-instagram-clone-for-cars-was-approved-for-the-itunes-store-on-the-18-8-f4668f8b17de) : codeship, modulus, settings.json, compose.io, cordova, WkWebView, Appcache package, imgix...
+- [Building an ultra responsive UI sharing nearly all code between web and mobile](https://hansoftx.com/blog/building-an-ultra-responsive-ui) : example of a desktop and mobile app built with meteor
+- [Offline app with Meteor and Cordova](http://rafaelquintanilha.com/offline-app-with-meteor-and-cordova/) : ionic, grounddb, link to an app
 
 __Communicating with outside world : API, etc__
 
@@ -103,10 +107,16 @@ __Good practices__
 __Animation__
 
 - [Meteor template animation](https://github.com/gwendall/meteor-template-animations) : simple DOM animations for Meteor
--
+
+
 __Alerts and notifications__
 
 - https://github.com/juliancwirko/meteor-s-alert/
+
+### <a name="meteorResources">Meteor generic resources
+
+- https://github.com/Urigo/awesome-meteor : A curated, community driven list of awesome Meteor packages, libraries, resources and shiny things
+
 
 
 # <a name="design">Design

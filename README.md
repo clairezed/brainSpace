@@ -1,3 +1,4 @@
+* [System](#system)
 * [Development](#development)
  * [Javascript](#javascript)
   * [Javascript debugging tips](#javascriptDebuggingTips)
@@ -12,6 +13,10 @@
   * [Notes Eloquent.js](books/eloquentJsNotes.md)
 
 ___
+
+# <a name="system">System
+
+- http://itsfoss.com/how-to-fix-no-sound-through-hdmi-in-external-monitor-in-ubuntu/
 
 # <a name="development">Development
 

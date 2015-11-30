@@ -24,6 +24,8 @@ ___
 
 ## <a name="staticWebsites">Static Websites
 
+- [Modern Static website generators - Smashing magazine](http://www.smashingmagazine.com/2015/11/modern-static-website-generators-next-big-thing/) : list of usefull complementary ressources for building sites usng static generators
+
 ## <a name="javascript">Javascript
 
 ### <a name="javascriptDebuggingTips">Javascript debugging tips

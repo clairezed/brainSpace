@@ -1,5 +1,6 @@
 * [System](#system)
 * [Development](#development)
+ * [Static Websites](#staticWebsites)
  * [Javascript](#javascript)
   * [Javascript debugging tips](#javascriptDebuggingTips)
  * [Meteor](#meteor)
@@ -20,6 +21,8 @@ ___
 - http://itsfoss.com/how-to-fix-no-sound-through-hdmi-in-external-monitor-in-ubuntu/
 
 # <a name="development">Development
+
+## <a name="staticWebsites">Static Websites
 
 ## <a name="javascript">Javascript
 
@@ -89,6 +92,7 @@ __Testing__
 
 __Scaling__
 - [Building Large Apps: Tips](https://meteor.hackpad.com/Building-Large-Apps-Tips-d8PQ848nLyE)
+- [First experience scaling a meteor app](https://medium.com/@eliezer/first-experiences-scaling-a-meteor-app-14a48e62a4af) : talks about different meteor stacks (cost, pros and cons..), horizontal scaling with nginx, with explanations for noobs and useful links
 
 __Deployment__
 
